@@ -6,6 +6,7 @@ import UserCard from './components/UserCard';
 import './App.css'
 
 function App() {
+  const [closeForm, setCloseForm] = useState(true);
   const [users, setUsers] = useState();
   const [updateInfo, setUpdateInfo] = useState();
 
@@ -43,12 +44,16 @@ function App() {
 
   return (
     <div className="App">
-      <FormUser
-        createNewUser={createNewUser}
-        updateInfo={updateInfo}
-        updateUserById={updateUserById}
-        setUpdateInfo={setUpdateInfo}
-      />
+      <button onClick = { () => setCloseForm (false)}className='app-btn'>Open Form</button>
+      <div className={`form-container ${closeForm && 'close-form'}`}>
+        <FormUser
+          createNewUser={createNewUser}
+          updateInfo={updateInfo}
+          updateUserById={updateUserById}
+          setUpdateInfo={setUpdateInfo}
+          setCloseForm={setCloseForm}
+        />
+      </div>
       <div className='user-container'>
         {
           users?.map(user => (

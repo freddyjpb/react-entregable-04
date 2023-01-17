@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form';
+import '../styles/FormUser.css';
 
-const FormUser = ({ createNewUser, updateInfo, updateUserById, setUpdateInfo }) => {
+const FormUser = ({ createNewUser, updateInfo, updateUserById, setUpdateInfo, setCloseForm }) => {
 
     useEffect(() => {
         reset(updateInfo)
@@ -27,9 +28,12 @@ const FormUser = ({ createNewUser, updateInfo, updateUserById, setUpdateInfo }) 
     }
 
     return (
-        <div>
+        <div className='form-user'>
             <form onSubmit={handleSubmit(submit)}>
-                <h2>Create</h2>
+                <div>
+                    <h2>Create User</h2>
+                    <button onClick = { () => setCloseForm (true)}className='app-btn'>x</button>
+                </div>
                 <div>
                     <label htmlFor="firstname">First Name</label>
                     <input type="text" id="firstname" {...register('first_name')} />
@@ -50,7 +54,9 @@ const FormUser = ({ createNewUser, updateInfo, updateUserById, setUpdateInfo }) 
                     <label htmlFor="birthday">Birthday</label>
                     <input type="date" id="birthday" {...register('birthday')} />
                 </div>
-                <button>Submit</button>
+                <div>
+                    <button>Submit</button>
+                </div>
             </form>
         </div>
     )
