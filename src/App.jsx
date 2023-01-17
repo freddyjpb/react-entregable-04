@@ -62,6 +62,7 @@ function App() {
               user={user}
               deleteUserById={deleteUserById}
               setUpdateInfo={setUpdateInfo}
+              setCloseForm={setCloseForm}              
             />
           ))
         }

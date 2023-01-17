@@ -18,6 +18,8 @@ const FormUser = ({ createNewUser, updateInfo, updateUserById, setUpdateInfo, se
             createNewUser(data);
         }
 
+        setCloseForm(true);
+
         reset({
             first_name: '',
             last_name: '',
@@ -32,7 +34,7 @@ const FormUser = ({ createNewUser, updateInfo, updateUserById, setUpdateInfo, se
             <form onSubmit={handleSubmit(submit)}>
                 <div>
                     <h2>Create User</h2>
-                    <button onClick = { () => setCloseForm (true)}className='app-btn'>x</button>
+                    <button onClick={() => setCloseForm(true)} className='app-btn'>x</button>
                 </div>
                 <div>
                     <label htmlFor="firstname">First Name</label>

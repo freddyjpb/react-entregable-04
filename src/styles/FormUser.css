@@ -4,6 +4,7 @@
     max-width: 300px;
     padding: 16px;
     border-radius: 16px;
+    z-index: 100;
 }
 
 .form-user div {

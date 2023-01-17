@@ -1,13 +1,14 @@
 import React from 'react'
 import '../styles/UserCard.css';
 
-const UserCard = ({ user, deleteUserById, setUpdateInfo }) => {
-    
+const UserCard = ({ user, deleteUserById, setUpdateInfo, setCloseForm }) => {
+
     const handleEdit = () => {
-        setUpdateInfo( user);
+        setUpdateInfo(user);
+        setCloseForm(false);
     }
-    
-    
+
+
     return (
         <div className='card'>
             <article>
@@ -17,8 +18,8 @@ const UserCard = ({ user, deleteUserById, setUpdateInfo }) => {
                     <li><span>birthday</span>{user.birthday}</li>
                 </ul>
                 <footer className='card__footer'>
-                    <button onClick={() => deleteUserById(user.id )}><i className='bx bx-trash'></i></button>
-                    <button onClick={ handleEdit }><i className='bx bx-pencil'></i></button>
+                    <button onClick={() => deleteUserById(user.id)}><i className='bx bx-trash'></i></button>
+                    <button onClick={handleEdit}><i className='bx bx-pencil'></i></button>
                 </footer>
             </article>
         </div>
